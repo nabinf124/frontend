@@ -1,0 +1,28 @@
+<!-- login.component.html -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center">Task Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="checkValidUser()" #loginFormRef>
+        <div class="form-group">
+          <label for="username">Username<span class="required">*</span></label>
+          <input type="text" class="form-control" id="username" placeholder="Enter Username" formControlName="userName">
+          <div *ngIf="loginForm.get('userName')?.hasError('required') && loginForm.get('userName')?.touched"
+               class="invalid-feedback">Please provide a username.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password<span class="required">*</span></label>
+          <input type="password" class="form-control" id="password" placeholder="Enter Password" formControlName="passWord">
+          <div *ngIf="loginForm.get('passWord')?.hasError('required') && loginForm.get('passWord')?.touched"
+               class="invalid-feedback">Please provide a password.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="loginForm.invalid">Login</button>
+
+        <button class="btn btn-success m-2" routerLink="/task">New User? Register</button>
+      </form>
+    </div>
+  </div>
+</div>

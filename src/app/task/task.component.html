@@ -1,0 +1,26 @@
+<div class="task-container">
+    <h1>Task List</h1>
+    <button class="btn btn-success" (click)="addTask()">Add Task</button>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Completed</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{task.title}}</td>
+          <td>{{task.description}}</td>
+          <td><input type="checkbox" [(ngModel)]="task.completed" (change)="updateTask(task)"></td>
+          <td>
+            <button class="btn btn-info" (click)="editTask(task)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteTask(task)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

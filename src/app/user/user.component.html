@@ -1,0 +1,23 @@
+<div class="user-container">
+  <h1>User List</h1>
+  <button class="btn btn-success" (click)="addUser()">Add User</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.username}}</td>
+        <td>{{user.role}}</td>
+        <td>
+          <button class="btn btn-info" (click)="editUser(user)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
